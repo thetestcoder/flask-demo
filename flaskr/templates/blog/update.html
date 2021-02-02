@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <div class="bg-success d-flex my-2 px-2 justify-content-between align-content-center" style="width: 100%;">
+      <h1  class="text-white m-0">{% block title %}Update {{ post['title'] }} {% endblock %}</h1>
+      <a class="action text-white" href="{{ url_for('blog.index') }}">All Posts</a>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="mb-2">
+        <label for="title" class="form-label">Title</label>
+        <input name="title" id="title" value="{{ post['title'] }}" required class="form-control">
+    </div>
+    <div class="mb-2">
+        <label for="body" class="form-label">Body</label>
+        <textarea name="body" id="body" class="form-control">{{ post['body'] }}</textarea>
+    </div>
+    <div class="d-grid mb-2">
+      <input type="submit" value="Save" class="btn btn-success">
+    </div>
+  </form>
+{% endblock %}

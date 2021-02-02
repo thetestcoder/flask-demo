@@ -7,11 +7,12 @@ from flask import (
     render_template,
     request,
     session,
-    url_for
+    url_for,
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
+
 
 bp = Blueprint('auth', __name__, url_prefix="/auth")
 
@@ -23,8 +24,9 @@ def loadLoggedInUser():
     if user_id is None:
         g.user = None
     else:
+        print(user_id)
         g.user = get_db().execute(
-            "SELECT * FROM user where id =?", user_id
+            "SELECT * FROM user where id =?", (user_id,)
         ).fetchone()
 
 
