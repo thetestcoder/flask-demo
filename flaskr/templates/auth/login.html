@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="bg-success text-white text-center rounded">{% block title %}Log In{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="mb-2">
+      <label for="username" class="form-label">Username</label>
+      <input name="username" id="username" required class="form-control">
+    </div>
+    <div class="mb-2">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" id="password" required class="form-control">
+    </div>
+    <div class="d-grid mb-2">
+      <input type="submit" value="Log In" class="btn btn-success">
+    </div>
+
+  </form>
+{% endblock %}
